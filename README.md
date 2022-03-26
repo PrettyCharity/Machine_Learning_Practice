@@ -24,7 +24,10 @@ The topics will be shared here:
 - **Unsupervised Learning**
   - Clustering
     - [K-Means Clustering with Principal Component Analysis (PCA) visualization](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Clustering/K-Means%20Clustering/Clustering_and_Visualization_of_Mall_Customer_data.ipynb)
-    - [Hierarchical Clustering with Dendrogram](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Clustering/Hierarchical%20Clustering/Hierarchical_Clustering_of_Mall_Customer_data.ipynb) 
+    - [Hierarchical Clustering with Dendrogram](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Clustering/Hierarchical%20Clustering/Hierarchical_Clustering_of_Mall_Customer_data.ipynb)
+  - Association Rule Learning
+    - [Apriori](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Association%20Rule%20Learning/Apriori%20Algorithm/Apriori_Algorithm.ipynb)
+    - Eclat  
 - **Reinforcement Learning**
 - **Natural Language Processing**
 
