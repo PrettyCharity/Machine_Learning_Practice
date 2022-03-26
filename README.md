@@ -27,7 +27,7 @@ The topics will be shared here:
     - [Hierarchical Clustering with Dendrogram](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Clustering/Hierarchical%20Clustering/Hierarchical_Clustering_of_Mall_Customer_data.ipynb)
   - Association Rule Learning
     - [Apriori](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Association%20Rule%20Learning/Apriori%20Algorithm/Apriori_Algorithm.ipynb)
-    - Eclat  
+    - [Eclat](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Association%20Rule%20Learning/Eclat%20Algorithm/Eclat_Algorithm.ipynb)  
 - **Reinforcement Learning**
 - **Natural Language Processing**
 
