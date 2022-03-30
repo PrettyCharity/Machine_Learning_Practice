@@ -29,7 +29,7 @@ The topics will be shared here:
     - [Apriori](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Association%20Rule%20Learning/Apriori%20Algorithm/Apriori_Algorithm.ipynb)
     - [Eclat](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Association%20Rule%20Learning/Eclat%20Algorithm/Eclat_Algorithm.ipynb)  
 - **Reinforcement Learning**
-  - Upper Confidence Bound
+  - [Upper Confidence Bound](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Reinforcement%20Learning/Upper%20Confidence%20Bound/Upper_Confidence_Bound.ipynb)
   - Thompson Sampling  
 - **Natural Language Processing**
 
