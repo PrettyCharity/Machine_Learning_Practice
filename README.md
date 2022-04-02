@@ -33,4 +33,6 @@ The topics will be shared here:
   - [Upper Confidence Bound](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Reinforcement%20Learning/Upper%20Confidence%20Bound/Upper_Confidence_Bound.ipynb)
   - [Thompson Sampling](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Reinforcement%20Learning/Thompson%20Sampling/Thompson_Sampling.ipynb)  
 - **Natural Language Processing**
+  - Bag of words
+    - [Sentiment Analysis with Classification Models](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Natural%20Language%20Processing/Bag%20of%20words/Bag_of_words_with_Classification_Models.ipynb)  
 
