@@ -35,5 +35,6 @@ The topics will be shared here:
 - **Natural Language Processing**
   - Bag of words
     - [Sentiment Analysis with Classification Models](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Natural%20Language%20Processing/Bag%20of%20words/Bag_of_words_with_Classification_Models.ipynb)
-    - [Sentiment Analysis with LigthGBM | XGBoost and Hyperparameter Tuning](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Natural%20Language%20Processing/Bag%20of%20words/Bag_of_words_with_LightGBM_XGBoost_%5Bwith_HP_Tuning%5D.ipynb)  
+    - [Sentiment Analysis with LigthGBM | XGBoost and Hyperparameter Tuning](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Natural%20Language%20Processing/Bag%20of%20words/Bag_of_words_with_LightGBM_XGBoost_%5Bwith_HP_Tuning%5D.ipynb)
+- **Deep Learning**   
 
