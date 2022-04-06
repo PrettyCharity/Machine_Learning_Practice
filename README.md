@@ -37,4 +37,5 @@ The topics will be shared here:
     - [Sentiment Analysis with Classification Models](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Natural%20Language%20Processing/Bag%20of%20words/Bag_of_words_with_Classification_Models.ipynb)
     - [Sentiment Analysis with LigthGBM | XGBoost and Hyperparameter Tuning](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Natural%20Language%20Processing/Bag%20of%20words/Bag_of_words_with_LightGBM_XGBoost_%5Bwith_HP_Tuning%5D.ipynb)
 - **Deep Learning**   
-
+  - Artifical Neural Network
+    - [Geographic Segmentation of Bank data with ANN and HP Tuning](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Deep%20Learning/Artifical%20Neural%20Networks/Geographic_Segmentation_with_Neural_Networks_and_Classification_models.ipynb) 
