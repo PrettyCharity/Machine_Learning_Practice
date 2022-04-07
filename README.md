@@ -40,4 +40,4 @@ The topics will be shared here:
   - Artifical Neural Network
     - [Geographic Segmentation of Bank data with ANN and HP Tuning](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Deep%20Learning/Artifical%20Neural%20Networks/Geographic_Segmentation_with_Neural_Networks_and_Classification_models.ipynb)
   - Convolutional Neural Network
-    - [Cat or Dog: a CNN training] (https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Deep%20Learning/Convolutional%20Neural%20Network/Dog_or_Cat_a_CNN.ipynb)  
+    - [Cat or Dog: a CNN training](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Deep%20Learning/Convolutional%20Neural%20Network/Dog_or_Cat_a_CNN.ipynb)  
