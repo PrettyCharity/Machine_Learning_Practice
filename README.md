@@ -41,6 +41,6 @@ The topics will be shared here:
     - Classification 
       - [Geographic Segmentation of Bank data with ANN and HP Tuning](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Deep%20Learning/Artifical%20Neural%20Networks/Classification/Geographic_Segmentation_with_Neural_Networks_and_Classification_models.ipynb)
      - Regression
-      - [Combined Cycle Power Plant Data: ANN and Regression Models comparison](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Deep%20Learning/Artifical%20Neural%20Networks/Regression/Combined_Cycle_Power_Plant_Data_ANN_and_Regression_Models_comparison.ipynb)  
+       - [Combined Cycle Power Plant Data: ANN and Regression Models comparison](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Deep%20Learning/Artifical%20Neural%20Networks/Regression/Combined_Cycle_Power_Plant_Data_ANN_and_Regression_Models_comparison.ipynb)  
   - Convolutional Neural Network
     - [Cat or Dog: a CNN training](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Deep%20Learning/Convolutional%20Neural%20Network/Dog_or_Cat_a_CNN.ipynb)  
