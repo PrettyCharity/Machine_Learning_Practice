@@ -38,6 +38,9 @@ The topics will be shared here:
     - [Sentiment Analysis with LigthGBM | XGBoost and Hyperparameter Tuning](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Natural%20Language%20Processing/Bag%20of%20words/Bag_of_words_with_LightGBM_XGBoost_%5Bwith_HP_Tuning%5D.ipynb)
 - **Deep Learning**   
   - Artifical Neural Network
-    - [Geographic Segmentation of Bank data with ANN and HP Tuning](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Deep%20Learning/Artifical%20Neural%20Networks/Geographic_Segmentation_with_Neural_Networks_and_Classification_models.ipynb)
+    - Classification 
+      - [Geographic Segmentation of Bank data with ANN and HP Tuning](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Deep%20Learning/Artifical%20Neural%20Networks/Classification/Geographic_Segmentation_with_Neural_Networks_and_Classification_models.ipynb)
+     - Regression
+      - [Combined Cycle Power Plant Data: ANN and Regression Models comparison](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Deep%20Learning/Artifical%20Neural%20Networks/Regression/Combined_Cycle_Power_Plant_Data_ANN_and_Regression_Models_comparison.ipynb)  
   - Convolutional Neural Network
     - [Cat or Dog: a CNN training](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Deep%20Learning/Convolutional%20Neural%20Network/Dog_or_Cat_a_CNN.ipynb)  
