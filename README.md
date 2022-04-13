@@ -44,3 +44,5 @@ The topics will be shared here:
        - [Combined Cycle Power Plant Data: ANN and Regression Models comparison](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Deep%20Learning/Artifical%20Neural%20Networks/Regression/Combined_Cycle_Power_Plant_Data_ANN_and_Regression_Models_comparison.ipynb)  
   - Convolutional Neural Network
     - [Cat or Dog: a CNN training](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Deep%20Learning/Convolutional%20Neural%20Network/Dog_or_Cat_a_CNN.ipynb)  
+  - Recurrent Neural Network
+    - [Prediction of Financial Stock data with Long-Short Term Memory (LSTM) model](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Deep%20Learning/Recurrent%20Neural%20Networks/LSTM%20Financial%20Data%20prediction.ipynb)  
