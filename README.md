@@ -49,4 +49,6 @@ The topics will be shared here:
   - Self Organizing Maps
     - [Credit Card Fraud Detection with SOM and ANN](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Deep%20Learning/Self%20Organizing%20Maps/Credit%20Fraud%20Detection%20with%20SOM.ipynb)
   - Boltzmann Machine
-    - [Binary Movie Recommendation Model with Restricted Boltzmann Machine](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Deep%20Learning/Boltzmann%20Machine/Boltzmann%20Machine%20for%20Movie%20Recommendation%20System.ipynb)      
+    - [Binary Movie Recommendation Model with Restricted Boltzmann Machine](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Deep%20Learning/Boltzmann%20Machine/Boltzmann%20Machine%20for%20Movie%20Recommendation%20System.ipynb)
+  - Auto-Encoders
+    - [Stacked Auto-Encoder model for Movie Rating Prediction](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Deep%20Learning/Auto-Encoders/Auto-Encoder%20for%20Movie%20Recommendation%20System.ipynb)        
