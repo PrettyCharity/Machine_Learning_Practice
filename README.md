@@ -32,6 +32,9 @@ The topics will be shared here:
 - **Reinforcement Learning**
   - [Upper Confidence Bound](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Reinforcement%20Learning/Upper%20Confidence%20Bound/Upper_Confidence_Bound.ipynb)
   - [Thompson Sampling](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Reinforcement%20Learning/Thompson%20Sampling/Thompson_Sampling.ipynb)  
+- **Dimensionality Reduction**
+  - Principal Component Analysis
+    - [Customer Segmentation of Wine data with PCA and Classification Models](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Dimensionality%20Reduction/Principal%20Component%20Analysis/Principal%20Component%20Analysis.ipynb)  
 - **Natural Language Processing**
   - Bag of words
     - [Sentiment Analysis with Classification Models](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Natural%20Language%20Processing/Bag%20of%20words/Bag_of_words_with_Classification_Models.ipynb)
