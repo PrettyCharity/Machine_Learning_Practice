@@ -36,7 +36,9 @@ The topics will be shared here:
   - Principal Component Analysis
     - [Customer Segmentation of Wine data with PCA and Classification Models](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Dimensionality%20Reduction/Principal%20Component%20Analysis/Principal%20Component%20Analysis.ipynb)  
   - Linear Discriminant Analysis
-    - [Customer Segmentation of Wine data with LDA and Classification Models](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Dimensionality%20Reduction/Linear%20Discriminant%20Analysis/Linear%20Discriminant%20Analysis.ipynb)  
+    - [Customer Segmentation of Wine data with LDA and Classification Models](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Dimensionality%20Reduction/Linear%20Discriminant%20Analysis/Linear%20Discriminant%20Analysis.ipynb)
+  - Kernel PCA
+    - [Customer Segmentation of Wine data with Kernel PCA and Classification Models](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Dimensionality%20Reduction/Kernel%20PCA/Kernel%20PCA.ipynb)     
 - **Natural Language Processing**
   - Bag of words
     - [Sentiment Analysis with Classification Models](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Natural%20Language%20Processing/Bag%20of%20words/Bag_of_words_with_Classification_Models.ipynb)
