@@ -59,3 +59,5 @@ The topics will be shared here:
     - [Binary Movie Recommendation Model with Restricted Boltzmann Machine](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Deep%20Learning/Boltzmann%20Machine/Boltzmann%20Machine%20for%20Movie%20Recommendation%20System.ipynb)
   - Auto-Encoders
     - [Stacked Auto-Encoder model for Movie Rating Prediction](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Deep%20Learning/Auto-Encoders/Auto-Encoder%20for%20Movie%20Recommendation%20System.ipynb)        
+- **Computer Vision**
+  - [Viola-Jones Algorithm](https://github.com/PrettyCharity/Machine_Learning_Practice/tree/main/Computer%20Vision/Viola%20-%20Jones%20Algorithm) 
