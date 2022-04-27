@@ -61,4 +61,6 @@ The topics will be shared here:
     - [Stacked Auto-Encoder model for Movie Rating Prediction](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Deep%20Learning/Auto-Encoders/Auto-Encoder%20for%20Movie%20Recommendation%20System.ipynb)        
 - **Computer Vision**
   - Viola-Jones Algorithm
-    - [Face and Smile Detection](https://github.com/PrettyCharity/Machine_Learning_Practice/tree/main/Computer%20Vision/Viola%20-%20Jones%20Algorithm)   
+    - [Face and Smile Detection](https://github.com/PrettyCharity/Machine_Learning_Practice/tree/main/Computer%20Vision/Viola%20-%20Jones%20Algorithm)
+  - Single-Shot Detector
+    - [Object Detection with Pytorch](https://github.com/PrettyCharity/Machine_Learning_Practice/tree/main/Computer%20Vision/Single%20Shot%20Detector%20(SSD)/Pytorch)     
