@@ -63,4 +63,6 @@ The topics will be shared here:
   - Viola-Jones Algorithm
     - [Face and Smile Detection](https://github.com/PrettyCharity/Machine_Learning_Practice/tree/main/Computer%20Vision/Viola%20-%20Jones%20Algorithm)
   - Single-Shot Detector
-    - [Object Detection with Pytorch](https://github.com/PrettyCharity/Machine_Learning_Practice/tree/main/Computer%20Vision/Single%20Shot%20Detector%20(SSD)/Pytorch)     
+    - [Object Detection with Pytorch](https://github.com/PrettyCharity/Machine_Learning_Practice/tree/main/Computer%20Vision/Single%20Shot%20Detector%20(SSD)/Pytorch)
+  - General Adversarial Networks
+    - [Deep Convolutional GANs with CIFAR10 and CelebA datasets](https://github.com/PrettyCharity/Machine_Learning_Practice/tree/main/Computer%20Vision/General%20Adversarial%20Networks%20(GANs))   
