@@ -52,7 +52,7 @@ The topics will be shared here:
   - Convolutional Neural Network
     - [Cat or Dog: a CNN training](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Deep%20Learning/Convolutional%20Neural%20Network/Dog_or_Cat_a_CNN.ipynb)  
   - Recurrent Neural Network
-    - [Prediction of Financial Stock data with Long-Short Term Memory (LSTM) model](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Deep%20Learning/Recurrent%20Neural%20Networks/LSTM%20Financial%20Data%20prediction.ipynb)
+    - Prediction of Financial Stock data with Long-Short Term Memory (LSTM) model: [TensorFlow](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Deep%20Learning/Recurrent%20Neural%20Networks/LSTM%20Financial%20Data%20prediction.ipynb) | [PyTorch](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Deep%20Learning/Recurrent%20Neural%20Networks/LSTM%20Financial%20Data%20prediction%20-%20Pytorch.ipynb)
   - Self Organizing Maps
     - [Credit Card Fraud Detection with SOM and ANN](https://github.com/PrettyCharity/Machine_Learning_Practice/blob/main/Deep%20Learning/Self%20Organizing%20Maps/Credit%20Fraud%20Detection%20with%20SOM.ipynb)
   - Boltzmann Machine
