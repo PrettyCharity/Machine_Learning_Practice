@@ -28,11 +28,16 @@ Based on the MAPE (Mean Absolute Percentage Error) metric across multiple experi
 
 The model is trained on a 60-day sliding window of these combined features. To estimate prices multiple days ahead, the script iteratively projects tomorrow's price, rebuilds the input array with that synthetic prediction, and steps forward until the target period is met.
 
+## Visualization
+You can visualize the model's 60-day historical inputs along with the generated prediction path in two ways:
+1. **CLI Mode:** Simply executing `predict_future_enhanced.py` automatically generates and saves a static matplotlib PNG graph locally (e.g., `AAPL_prediction.png`).
+2. **Interactive Jupyter Notebook:** Use the `Predict_Future_Visualization.ipynb` notebook. It imports the production class and leverages `plotly` to render an interactive, zoomable trend analysis.
+
 ## Execution
 
 Ensure you have the necessary dependencies installed:
 ```bash
-pip install torch pandas numpy yfinance scikit-learn matplotlib pandas-ta nltk beautifulsoup4 feedparser requests
+pip install torch pandas numpy yfinance scikit-learn matplotlib pandas-ta nltk beautifulsoup4 feedparser requests plotly jupyter
 ```
 
 ### Usage

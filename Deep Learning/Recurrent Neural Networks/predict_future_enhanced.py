@@ -8,6 +8,7 @@ import pandas_ta as ta  # noqa: F401
 import torch
 import torch.nn as nn
 import yfinance as yf
+import matplotlib.pyplot as plt
 from sklearn.preprocessing import MinMaxScaler
 from news_fetchers import (
     fetch_yfinance_news,
@@ -167,7 +168,9 @@ class FutureStockPredictorEnhanced:
 
         return model
 
-    def predict_future(self, model: GRU, period: int) -> Tuple[float, float, str]:
+    def predict_future(
+        self, model: GRU, period: int
+    ) -> Tuple[float, float, str, List[float], List[pd.Timestamp]]:
         model.eval()
 
         # Start with the last known window of scaled features
@@ -216,7 +219,19 @@ class FutureStockPredictorEnhanced:
         else:
             direction = "Neutral"
 
-        return last_real_price, final_price, direction
+        # Generate future dates for the prediction
+        last_date = self.df["Date"].iloc[-1]
+        future_dates = pd.bdate_range(
+            start=last_date + pd.Timedelta(days=1), periods=period
+        )
+
+        return (
+            last_real_price,
+            final_price,
+            direction,
+            predicted_prices,
+            future_dates.tolist(),
+        )
 
 
 def main():
@@ -257,7 +272,9 @@ def main():
     model = predictor.train_model()
 
     print(f"Simulating future predictions for {args.period} days...")
-    last_price, est_price, direction = predictor.predict_future(model, args.period)
+    last_price, est_price, direction, predicted_prices, future_dates = (
+        predictor.predict_future(model, args.period)
+    )
 
     print("\n" + "=" * 50)
     print("PREDICTION RESULTS")
@@ -268,6 +285,42 @@ def main():
     print(f"Estimated Price:  ${est_price:.2f}")
     print(f"Overall Direction:{direction}")
     print("=" * 50 + "\n")
+
+    print(f"Generating visualization...")
+    historical_days = 60
+    hist_dates = predictor.df["Date"].iloc[-historical_days:].tolist()
+    hist_prices = predictor.df["Open"].iloc[-historical_days:].tolist()
+
+    plt.figure(figsize=(10, 6))
+    plt.plot(
+        hist_dates,
+        hist_prices,
+        label="Historical Open Prices (last 60 days)",
+        color="blue",
+    )
+
+    # Connect the last historical point to the first prediction point
+    plot_dates = [hist_dates[-1]] + future_dates
+    plot_prices = [hist_prices[-1]] + predicted_prices
+    plt.plot(
+        plot_dates,
+        plot_prices,
+        label=f"Predicted Open Prices ({args.period} days)",
+        color="orange",
+        linestyle="--",
+    )
+
+    plt.title(
+        f"{args.ticker.upper()} - {historical_days}-Day History & {args.period}-Day Prediction"
+    )
+    plt.xlabel("Date")
+    plt.ylabel("Price (USD)")
+    plt.legend()
+    plt.grid(True)
+
+    out_file = f"{args.ticker.upper()}_prediction.png"
+    plt.savefig(out_file)
+    print(f"Saved plot to {out_file}\n")
 
 
 if __name__ == "__main__":

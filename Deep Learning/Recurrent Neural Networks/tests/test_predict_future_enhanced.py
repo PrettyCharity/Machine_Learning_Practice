@@ -15,7 +15,9 @@ from predict_future_enhanced import FutureStockPredictorEnhanced, GRU
 @patch("predict_future_enhanced.fetch_finviz_news")
 @patch("predict_future_enhanced.fetch_googlenews_rss")
 @patch("predict_future_enhanced.fetch_analyst_ratings")
-def test_fetch_and_prepare_data(mock_ratings, mock_gn, mock_finviz, mock_yf, mock_download):
+def test_fetch_and_prepare_data(
+    mock_ratings, mock_gn, mock_finviz, mock_yf, mock_download
+):
     # Setup mock returns
     mock_yf.return_value = ["Excellent news!"]
     mock_finviz.return_value = ["Amazing gains in the market!"]
@@ -73,6 +75,7 @@ def test_train_and_predict(mock_fetch):
         "Sentiment_Finviz": [0.5 for _ in range(30)],
         "Sentiment_GN": [0.5 for _ in range(30)],
         "Analyst_Rating": [0.8 for _ in range(30)],
+        "Date": dates,
     }
     predictor.df = pd.DataFrame(data, index=dates)
 
@@ -81,7 +84,11 @@ def test_train_and_predict(mock_fetch):
     assert isinstance(model, GRU)
 
     # Test prediction
-    last_price, est_price, direction = predictor.predict_future(model, period=3)
+    last_price, est_price, direction, predicted_prices, future_dates = (
+        predictor.predict_future(model, period=3)
+    )
 
     assert last_price == 129.0
     assert direction in ["Upward", "Downward", "Neutral"]
+    assert len(predicted_prices) == 3
+    assert len(future_dates) == 3
