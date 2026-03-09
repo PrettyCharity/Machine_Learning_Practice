@@ -14,14 +14,16 @@ from predict_future_enhanced import FutureStockPredictorEnhanced, GRU
 @patch("predict_future_enhanced.fetch_yfinance_news")
 @patch("predict_future_enhanced.fetch_finviz_news")
 @patch("predict_future_enhanced.fetch_googlenews_rss")
+@patch("predict_future_enhanced.fetch_macro_geopolitical_news")
 @patch("predict_future_enhanced.fetch_analyst_ratings")
 def test_fetch_and_prepare_data(
-    mock_ratings, mock_gn, mock_finviz, mock_yf, mock_download
+    mock_ratings, mock_macro, mock_gn, mock_finviz, mock_yf, mock_download
 ):
     # Setup mock returns
     mock_yf.return_value = ["Excellent news!"]
     mock_finviz.return_value = ["Amazing gains in the market!"]
     mock_gn.return_value = ["The stock is performing exceptionally well!"]
+    mock_macro.return_value = ["Global trade talks progress."]
     mock_ratings.return_value = 0.8
 
     # Mock historical data
@@ -46,6 +48,7 @@ def test_fetch_and_prepare_data(
     assert "Sentiment_YF" in df.columns
     assert "Sentiment_Finviz" in df.columns
     assert "Sentiment_GN" in df.columns
+    assert "Sentiment_Macro" in df.columns
     assert "SMA_20" in df.columns
     assert "EMA_20" in df.columns
     assert "Analyst_Rating" in df.columns
@@ -54,6 +57,7 @@ def test_fetch_and_prepare_data(
     assert df["Sentiment_YF"].iloc[-1] > 0.0
     assert df["Sentiment_Finviz"].iloc[-1] > 0.0
     assert df["Sentiment_GN"].iloc[-1] > 0.0
+    assert df["Sentiment_Macro"].iloc[-1] > 0.0
     assert df["Analyst_Rating"].iloc[-1] == 0.8
 
 
@@ -74,6 +78,7 @@ def test_train_and_predict(mock_fetch):
         "Sentiment_YF": [0.5 for _ in range(30)],
         "Sentiment_Finviz": [0.5 for _ in range(30)],
         "Sentiment_GN": [0.5 for _ in range(30)],
+        "Sentiment_Macro": [0.5 for _ in range(30)],
         "Analyst_Rating": [0.8 for _ in range(30)],
         "Date": dates,
     }
@@ -92,6 +97,7 @@ def test_train_and_predict(mock_fetch):
     assert direction in ["Upward", "Downward", "Neutral"]
     assert len(predicted_prices) == 3
     assert len(future_dates) == 3
+
 
 @patch("predict_future_enhanced.FutureStockPredictorEnhanced.fetch_and_prepare_data")
 def test_long_term_flatline_safeguard(mock_fetch):
@@ -113,6 +119,7 @@ def test_long_term_flatline_safeguard(mock_fetch):
         "Sentiment_YF": [0.5 for _ in range(30)],
         "Sentiment_Finviz": [0.5 for _ in range(30)],
         "Sentiment_GN": [0.5 for _ in range(30)],
+        "Sentiment_Macro": [0.5 for _ in range(30)],
         "Analyst_Rating": [0.8 for _ in range(30)],
         "Date": dates,
     }

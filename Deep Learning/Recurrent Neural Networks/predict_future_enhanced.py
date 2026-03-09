@@ -16,6 +16,7 @@ from news_fetchers import (
     fetch_googlenews_rss,
     get_sentiment_score,
     fetch_analyst_ratings,
+    fetch_macro_geopolitical_news,
 )
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
@@ -73,6 +74,7 @@ class FutureStockPredictorEnhanced:
             "Sentiment_YF",
             "Sentiment_Finviz",
             "Sentiment_GN",
+            "Sentiment_Macro",
             "Analyst_Rating",
         ]
 
@@ -84,11 +86,14 @@ class FutureStockPredictorEnhanced:
         finviz_news = fetch_finviz_news(self.ticker)
         print("Fetching Google News...")
         gn_news = fetch_googlenews_rss(self.ticker)
+        print("Fetching Macro Geopolitical news...")
+        macro_news = fetch_macro_geopolitical_news()
 
         return {
             "yf": get_sentiment_score(yf_news),
             "finviz": get_sentiment_score(finviz_news),
             "gn": get_sentiment_score(gn_news),
+            "macro": get_sentiment_score(macro_news),
         }
 
     def fetch_and_prepare_data(self) -> pd.DataFrame:
@@ -116,6 +121,7 @@ class FutureStockPredictorEnhanced:
             ("yf", "Sentiment_YF"),
             ("finviz", "Sentiment_Finviz"),
             ("gn", "Sentiment_GN"),
+            ("macro", "Sentiment_Macro"),
         ]:
             df[key] = sentiments[source] + np.random.normal(0, 0.1, size=len(df))
             df[key] = df[key].clip(-1, 1)
@@ -264,7 +270,9 @@ def main():
     args = parser.parse_args()
 
     if not (1 <= args.period <= 7):
-        print("Error: Period must be between 1 and 7 days. Long-term predictions (> 7 days) lead to flatlining due to static autoregressive momentum features.")
+        print(
+            "Error: Period must be between 1 and 7 days. Long-term predictions (> 7 days) lead to flatlining due to static autoregressive momentum features."
+        )
         return
 
     print(f"Fetching data and calculating features for {args.ticker.upper()}...")

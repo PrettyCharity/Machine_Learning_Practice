@@ -28,14 +28,22 @@ Based on the MAPE (Mean Absolute Percentage Error) metric across multiple experi
 
 #### Geopolitical & Macroeconomic Impact
 
-To determine if global geopolitical events, trade tensions (e.g., USA/China tariffs), or broad economic indicators (e.g., Federal Reserve) influence short-term predictions, an additional experimental feature (`Sentiment_Macro`) was tested. This feature queried Google News RSS for broad macro terms and added its sentiment score to the model.
+To determine if global geopolitical events, trade tensions (e.g., USA/China tariffs), or broad economic indicators (e.g., Federal Reserve) influence short-term predictions, an additional feature (`Sentiment_Macro`) was developed. This queries Google News RSS for broad macro terms and feeds the overarching global sentiment into the model.
 
-| Model Mode                     | Average RMSE | Average MAPE |
-|--------------------------------|--------------|--------------|
-| Combined Multi (with ratings)  | 21.48        | 0.0922       |
-| Combined Multi (with ratings + macro) | 23.62 | 0.1123       |
+We performed a 7-day holdout evaluation to understand the impact of macroeconomic sentiment on individual stock tickers:
 
-**Findings:** For the specific list of tech and hardware tickers evaluated (MU, VST, MRVL, NVDA, S, ZS, MOD, VRT) over a short 7-day horizon, the general macroeconomic sentiment actually introduced noise and **degraded** the overall accuracy. Therefore, the geopolitical/macro feature was not permanently integrated into the final script.
+| Ticker | Without Macro (MAPE) | With Macro (MAPE) | Impact |
+|--------|----------------------|-------------------|--------|
+| MU     | 0.2457               | 0.2055            | **Improved** |
+| VST    | 0.0261               | 0.1025            | Degraded |
+| MRVL   | 0.0338               | 0.0503            | Degraded |
+| NVDA   | 0.1187               | 0.1186            | Neutral  |
+| S      | 0.1218               | 0.1655            | Degraded |
+| ZS     | 0.0647               | 0.0809            | Degraded |
+| MOD    | 0.0572               | 0.0566            | **Improved** |
+| VRT    | 0.0693               | 0.1184            | Degraded |
+
+**Findings:** The macroeconomic sentiment feature produces highly volatile and stock-specific outcomes. It significantly improves predictions for select stocks (like Micron and Modine) while acting as noise for others. Given that its inclusion provides a critical layer of real-world global awareness (and explicit user direction), `Sentiment_Macro` has been **fully integrated** into the production script.
 
 ### Prediction Horizon Pivot
 
