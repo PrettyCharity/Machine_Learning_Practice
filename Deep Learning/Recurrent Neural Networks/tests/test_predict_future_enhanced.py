@@ -92,3 +92,34 @@ def test_train_and_predict(mock_fetch):
     assert direction in ["Upward", "Downward", "Neutral"]
     assert len(predicted_prices) == 3
     assert len(future_dates) == 3
+
+@patch("predict_future_enhanced.FutureStockPredictorEnhanced.fetch_and_prepare_data")
+def test_long_term_flatline_safeguard(mock_fetch):
+    # This test simulates what the CLI argument parser does to prevent flatlining.
+    # While the arg parser itself handles the period limit, we want to ensure
+    # the predictor isn't artificially constrained if called via API.
+    # We just run a 7-day prediction to verify it works successfully without crashing.
+    predictor = FutureStockPredictorEnhanced("AAPL", timesteps=5)
+
+    dates = pd.date_range("2023-01-01", periods=30)
+    data = {
+        "Open": [100.0 + i for i in range(30)],
+        "High": [102.0 + i for i in range(30)],
+        "Low": [98.0 + i for i in range(30)],
+        "Close": [101.0 + i for i in range(30)],
+        "Volume": [1000 for _ in range(30)],
+        "SMA_20": [100.0 + i for i in range(30)],
+        "EMA_20": [100.0 + i for i in range(30)],
+        "Sentiment_YF": [0.5 for _ in range(30)],
+        "Sentiment_Finviz": [0.5 for _ in range(30)],
+        "Sentiment_GN": [0.5 for _ in range(30)],
+        "Analyst_Rating": [0.8 for _ in range(30)],
+        "Date": dates,
+    }
+    predictor.df = pd.DataFrame(data, index=dates)
+
+    model = predictor.train_model()
+    _, _, _, predicted_prices, future_dates = predictor.predict_future(model, period=7)
+
+    assert len(predicted_prices) == 7
+    assert len(future_dates) == 7

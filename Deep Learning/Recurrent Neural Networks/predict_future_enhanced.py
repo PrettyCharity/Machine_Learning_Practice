@@ -200,7 +200,17 @@ class FutureStockPredictorEnhanced:
 
                 # Update the 'Open' index with the newly predicted scaled value
                 open_idx = self.features.index("Open")
+                close_idx = self.features.index("Close")
+                high_idx = self.features.index("High")
+                low_idx = self.features.index("Low")
+
+                # To prevent completely flat autoregressive loops, carry the predicted
+                # Open value lightly to other core price indicators as a basic simulation.
+                # In a robust production environment, a multi-output GRU predicting all 4 would be ideal.
                 last_row[open_idx] = next_pred_scaled.item()
+                last_row[close_idx] = next_pred_scaled.item()
+                last_row[high_idx] = next_pred_scaled.item()
+                last_row[low_idx] = next_pred_scaled.item()
 
                 # Shift the window: remove the oldest day, append the new synthetic day
                 new_row_tensor = (
@@ -248,13 +258,13 @@ def main():
         "--period",
         type=int,
         required=True,
-        help="Number of days to predict into the future (1-30).",
+        help="Number of days to predict into the future (1-7).",
     )
 
     args = parser.parse_args()
 
-    if not (1 <= args.period <= 30):
-        print("Error: Period must be between 1 and 30 days.")
+    if not (1 <= args.period <= 7):
+        print("Error: Period must be between 1 and 7 days. Long-term predictions (> 7 days) lead to flatlining due to static autoregressive momentum features.")
         return
 
     print(f"Fetching data and calculating features for {args.ticker.upper()}...")
