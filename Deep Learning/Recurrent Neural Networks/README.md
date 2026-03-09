@@ -26,6 +26,17 @@ To determine the best approach for sentiment analysis and rating integration, ex
 
 Based on the MAPE (Mean Absolute Percentage Error) metric across multiple experimental runs, integrating the LSEG/Refinitiv Analyst Ratings along with the multi-channel sentiment (`Combined Multi with ratings`) significantly improves the overall performance, lowering the average prediction error. This final strategy is fully implemented in `predict_future_enhanced.py`.
 
+#### Geopolitical & Macroeconomic Impact
+
+To determine if global geopolitical events, trade tensions (e.g., USA/China tariffs), or broad economic indicators (e.g., Federal Reserve) influence short-term predictions, an additional experimental feature (`Sentiment_Macro`) was tested. This feature queried Google News RSS for broad macro terms and added its sentiment score to the model.
+
+| Model Mode                     | Average RMSE | Average MAPE |
+|--------------------------------|--------------|--------------|
+| Combined Multi (with ratings)  | 21.48        | 0.0922       |
+| Combined Multi (with ratings + macro) | 23.62 | 0.1123       |
+
+**Findings:** For the specific list of tech and hardware tickers evaluated (MU, VST, MRVL, NVDA, S, ZS, MOD, VRT) over a short 7-day horizon, the general macroeconomic sentiment actually introduced noise and **degraded** the overall accuracy. Therefore, the geopolitical/macro feature was not permanently integrated into the final script.
+
 ### Prediction Horizon Pivot
 
 When evaluating long-term trends (e.g. 30 days), the single-variable autoregressive loop generated a flatline artifact. This happened because the script fed the predicted `Open` price back into the network while keeping the other feature dimensions (`Close`, `High`, `Low`, `Volume`, `SMA`, `EMA`) static at their last known historical state. Without variance, the recurrent units quickly stabilized into a steady state (a horizontal line).

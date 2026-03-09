@@ -64,6 +64,25 @@ def fetch_googlenews_rss(ticker: str) -> List[str]:
         return []
 
 
+def fetch_macro_geopolitical_news() -> List[str]:
+    """
+    Fetches general macroeconomic and geopolitical news that might affect the stock market.
+    """
+    import urllib.parse
+    query = "geopolitics OR tariffs OR trade war OR economy OR federal reserve"
+    encoded_query = urllib.parse.quote(query)
+    url = f"https://news.google.com/rss/search?q={encoded_query}&hl=en-US&gl=US&ceid=US:en"
+
+    try:
+        feed = feedparser.parse(url)
+        texts = []
+        for entry in feed.entries[:20]:
+            texts.append(entry.title)
+        return texts
+    except Exception:
+        return []
+
+
 def get_sentiment_score(texts: List[str]) -> float:
     if not texts:
         return 0.0
