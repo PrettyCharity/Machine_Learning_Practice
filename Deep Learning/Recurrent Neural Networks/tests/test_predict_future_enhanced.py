@@ -14,11 +14,13 @@ from predict_future_enhanced import FutureStockPredictorEnhanced, GRU
 @patch("predict_future_enhanced.fetch_yfinance_news")
 @patch("predict_future_enhanced.fetch_finviz_news")
 @patch("predict_future_enhanced.fetch_googlenews_rss")
-def test_fetch_and_prepare_data(mock_gn, mock_finviz, mock_yf, mock_download):
+@patch("predict_future_enhanced.fetch_analyst_ratings")
+def test_fetch_and_prepare_data(mock_ratings, mock_gn, mock_finviz, mock_yf, mock_download):
     # Setup mock returns
     mock_yf.return_value = ["Excellent news!"]
     mock_finviz.return_value = ["Amazing gains in the market!"]
     mock_gn.return_value = ["The stock is performing exceptionally well!"]
+    mock_ratings.return_value = 0.8
 
     # Mock historical data
     dates = pd.date_range("2023-01-01", periods=50)
@@ -44,11 +46,13 @@ def test_fetch_and_prepare_data(mock_gn, mock_finviz, mock_yf, mock_download):
     assert "Sentiment_GN" in df.columns
     assert "SMA_20" in df.columns
     assert "EMA_20" in df.columns
+    assert "Analyst_Rating" in df.columns
 
     # Check that sentiment was injected
     assert df["Sentiment_YF"].iloc[-1] > 0.0
     assert df["Sentiment_Finviz"].iloc[-1] > 0.0
     assert df["Sentiment_GN"].iloc[-1] > 0.0
+    assert df["Analyst_Rating"].iloc[-1] == 0.8
 
 
 @patch("predict_future_enhanced.FutureStockPredictorEnhanced.fetch_and_prepare_data")
@@ -68,6 +72,7 @@ def test_train_and_predict(mock_fetch):
         "Sentiment_YF": [0.5 for _ in range(30)],
         "Sentiment_Finviz": [0.5 for _ in range(30)],
         "Sentiment_GN": [0.5 for _ in range(30)],
+        "Analyst_Rating": [0.8 for _ in range(30)],
     }
     predictor.df = pd.DataFrame(data, index=dates)
 

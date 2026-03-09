@@ -14,6 +14,7 @@ from news_fetchers import (
     fetch_finviz_news,
     fetch_googlenews_rss,
     get_sentiment_score,
+    fetch_analyst_ratings,
 )
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
@@ -71,6 +72,7 @@ class FutureStockPredictorEnhanced:
             "Sentiment_YF",
             "Sentiment_Finviz",
             "Sentiment_GN",
+            "Analyst_Rating",
         ]
 
     def _fetch_sentiments(self) -> Dict[str, float]:
@@ -118,6 +120,14 @@ class FutureStockPredictorEnhanced:
             df[key] = df[key].clip(-1, 1)
             # Set the current latest row to the exact current sentiment
             df.loc[df.index[-1], key] = sentiments[source]
+
+        print("Fetching LSEG/Refinitiv Analyst Ratings...")
+        current_rating = fetch_analyst_ratings(self.ticker)
+
+        # Simulate historical ratings
+        df["Analyst_Rating"] = current_rating + np.random.normal(0, 0.05, size=len(df))
+        df["Analyst_Rating"] = df["Analyst_Rating"].clip(-1, 1)
+        df.loc[df.index[-1], "Analyst_Rating"] = current_rating
 
         self.df = df
         return df

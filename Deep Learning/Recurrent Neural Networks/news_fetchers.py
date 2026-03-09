@@ -72,3 +72,34 @@ def get_sentiment_score(texts: List[str]) -> float:
     for text in texts:
         scores.append(analyzer.polarity_scores(text)["compound"])
     return float(np.mean(scores))
+
+def fetch_analyst_ratings(ticker: str) -> float:
+    """
+    Fetches analyst recommendations summary from Yahoo Finance (powered by LSEG/Refinitiv).
+    Maps text categories to a numeric scale (-1.0 to 1.0):
+    Strong Buy = 1.0, Buy = 0.5, Hold = 0.0, Sell = -0.5, Strong Sell = -1.0
+    Returns the weighted average score.
+    """
+    try:
+        t = yf.Ticker(ticker)
+        df = t.recommendations_summary
+        if df is None or df.empty:
+            return 0.0
+
+        # Get the current period (usually index 0, labeled '0m')
+        current = df.iloc[0]
+
+        strong_buy = current.get('strongBuy', 0)
+        buy = current.get('buy', 0)
+        hold = current.get('hold', 0)
+        sell = current.get('sell', 0)
+        strong_sell = current.get('strongSell', 0)
+
+        total = strong_buy + buy + hold + sell + strong_sell
+        if total == 0:
+            return 0.0
+
+        score = (strong_buy * 1.0 + buy * 0.5 + hold * 0.0 + sell * -0.5 + strong_sell * -1.0) / total
+        return float(score)
+    except Exception:
+        return 0.0
